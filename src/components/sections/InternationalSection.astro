@@ -1,0 +1,88 @@
+---
+import { international, booking } from "../../data/site";
+
+const waBase = `https://wa.me/${booking.whatsapp.number}?text=`;
+const waReserve = (country: string) =>
+  waBase + encodeURIComponent(`Hi Viktours! I'd like to reserve a rent-a-car / tour package in ${country}. Please send me options and availability.`);
+const waInfo = (country: string) =>
+  waBase + encodeURIComponent(`Hi Viktours! I'd like more information about your services in ${country}.`);
+---
+
+<section class="py-20 lg:py-28 bg-cream relative overflow-hidden" id="international">
+  <!-- Decorative -->
+  <div class="absolute inset-0 opacity-[0.04] pointer-events-none" aria-hidden="true"
+       style="background-image: radial-gradient(#0f3d2e 1px, transparent 1px); background-size: 24px 24px;"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-end mb-12 lg:mb-16">
+      <div class="lg:col-span-7" data-animate>
+        <span class="inline-flex items-center gap-2 bg-sea/15 text-sea-dark text-sm font-semibold px-4 py-1.5 rounded-full mb-5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          {international.eyebrow}
+        </span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-charcoal">
+          {international.headline}
+        </h2>
+      </div>
+      <div class="lg:col-span-5" data-animate>
+        <p class="text-charcoal/65 text-base lg:text-lg font-body leading-relaxed">
+          {international.subtitle}
+        </p>
+      </div>
+    </div>
+
+    <!-- Offerings chips -->
+    <div class="flex flex-wrap gap-2 mb-12 lg:mb-14" data-animate>
+      {international.offerings.map((o) => (
+        <span class="inline-flex items-center gap-2 bg-white border border-jungle/10 rounded-full px-4 py-2 text-sm font-semibold text-charcoal/75 shadow-sm">
+          <svg class="w-3.5 h-3.5 text-leaf-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+          {o}
+        </span>
+      ))}
+    </div>
+
+    <!-- Country cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      {international.locations.map((loc) => (
+        <article class="group relative rounded-3xl overflow-hidden min-h-[24rem] lg:min-h-[28rem]" data-animate>
+          <img src={loc.image} alt={loc.country} class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent"></div>
+
+          <!-- Flag badge -->
+          <span class="absolute top-5 left-5 flex items-center gap-2 bg-white/90 backdrop-blur rounded-full px-3 py-1.5 shadow">
+            <span class="text-xl leading-none" aria-hidden="true">{loc.flag}</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-jungle">Rent a car</span>
+          </span>
+
+          <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8 text-white">
+            <h3 class="font-display text-3xl lg:text-4xl font-extrabold mb-4">{loc.country}</h3>
+            <p class="text-[11px] font-bold text-leaf-light uppercase tracking-[0.18em] mb-2">Pickup locations</p>
+            <ul class="space-y-2 mb-5">
+              {loc.pickups.map((p) => (
+                <li class="flex items-start gap-2 text-sm text-white/85 font-body">
+                  <svg class="w-4 h-4 text-leaf-light shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  {p}
+                </li>
+              ))}
+            </ul>
+            <div class="flex flex-wrap gap-2.5">
+              <a href={waReserve(loc.country)} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-leaf hover:bg-leaf-dark text-jungle-dark font-bold text-sm rounded-full px-5 py-2.5 transition-all shadow-md shadow-leaf/30">
+                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+                Reserve
+              </a>
+              <a href={waInfo(loc.country)} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 border border-white/30 hover:bg-white/10 text-white font-semibold text-sm rounded-full px-5 py-2.5 transition-all">
+                More info
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Note -->
+    <p class="mt-8 text-center text-xs text-charcoal/50 font-body italic">
+      * Airline tickets are not included. We handle everything else: vehicles, insurance, hotels, transfers and meals per itinerary.
+    </p>
+  </div>
+</section>

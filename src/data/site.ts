@@ -9,21 +9,30 @@ import lasCatalinasImg from "../assets/images/las-catalinas.jpg";
 import sunsetImg from "../assets/images/sunset.jpg";
 import aboutImg from "../assets/images/about-waterfall.jpg";
 import catamaranImg from "../assets/images/catamaran.jpg";
+import tortugueroImg from "../assets/images/tortuguero.jpg";
+import nicaraguaImg from "../assets/images/nicaragua.jpg";
+import guatemalaImg from "../assets/images/guatemala.jpg";
+import irazuImg from "../assets/images/irazu.jpg";
+import bajosDelToroImg from "../assets/images/bajos-del-toro.jpg";
+import manuelAntonioImg from "../assets/images/manuel-antonio.jpg";
+import rentalCarImg from "../assets/images/rental-car.jpg";
+import privateTransfersImg from "../assets/images/private-transfers.jpg";
+import groupTourImg from "../assets/images/group-tour.png";
 
 export const siteConfig = {
   name: "Viktours Costa Rica",
   shortName: "Viktours",
   tagline: "Pura Vida Costa Rica · 100% Authentic",
-  title: "Viktours Costa Rica | Rent a Car, Transfers & Group Tours",
+  title: "Viktours Costa Rica | One-Day Tours, Rent a Car & Transfers",
   description:
-    "Know the true Pura Vida experience with Viktours. Rent a car from $57, private transfers across Costa Rica from $97 and 8-day group tours to Fortuna, Monteverde and Playa Hermosa Guanacaste.",
-  url: "https://viktourscr.com",
+    "Viktours — your Costa Rica travel agency. One-day tours to Arenal, Monteverde, Manuel Antonio, Poás, Tortuguero, Río Celeste and more. 4x4 rent a car from $57 and private transfers from $97. Also operating in Nicaragua and Guatemala.",
+  url: "https://viktours.tours",
 };
 
 export const booking = {
   whatsapp: {
     number: "50689537777",
-    defaultMessage: "Hi Viktours! I'd like more information about your tours, transfers and rent a car.",
+    defaultMessage: "Hi Viktours! I'd like more information about your tours, rent a car and transfers.",
   },
   googleCalendar: { enabled: false, calendarId: "primary" },
 };
@@ -31,85 +40,154 @@ export const booking = {
 export const navigation = [
   { label: "Home", href: "#top" },
   { label: "Services", href: "#experiences" },
-  { label: "Tours", href: "#tours" },
+  { label: "Day Tours", href: "#tours" },
+  { label: "Rent a Car", href: "#rent" },
   { label: "Transfers", href: "#transfers" },
   { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
 ];
 
 export const hero = {
-  badge: "Pura Vida · Eco-Friendly · Locally Owned",
+  badge: "Pura Vida · 10+ Years · 4,000+ Travelers",
   headline: {
     line1: "Know the True",
     accent: "Pura Vida",
     line2: "Experience",
   },
   description:
-    "Your Costa Rica travel agency for rent a car, airport transfers and unforgettable group tours across Fortuna, Monteverde and the Pacific coast — 100% authentic, worry-free.",
-  cta: { primary: "Plan Your Trip", secondary: "See Services" },
+    "Your Costa Rica travel agency for one-day tours, 4x4 rent a car and airport transfers. Based in Guanacaste · Liberia Airport (LIR), operating across Costa Rica, Nicaragua and Guatemala.",
+  cta: { primary: "Plan My Trip", secondary: "See Services" },
   image: heroImg.src,
   stats: [
-    { value: "$57+", label: "Rent a Car" },
-    { value: "$97+", label: "Transfers" },
-    { value: "$2,200", label: "8-Day Tours" },
-    { value: "100%", label: "Pura Vida" },
+    { value: "4,000+", label: "Travelers" },
+    { value: "10+", label: "Years Guiding" },
+    { value: "8", label: "Day Tours" },
+    { value: "3", label: "Countries" },
   ],
 };
 
-// ── Signature Group Tours & Packages ──
+// ── One-Day Tours across Costa Rica ──
 export const tours = {
-  headline: "Signature Group Tours",
-  subtitle: "Multi-day adventures across Costa Rica — transport, guides and unforgettable stops included.",
+  headline: "One-Day Tours Across Costa Rica",
+  subtitle: "Pick a destination — we handle the transport, the entrance, the guide and the memories.",
+  includes: [
+    "Point-to-point transfer",
+    "National park / attraction entrance",
+    "Insurance policy",
+    "Bottled water",
+    "Certified local guide",
+    "Optional meal add-on",
+  ],
   items: [
     {
       index: "01",
-      title: "8-Day Pura Vida Package",
-      subtitle: "Fortuna · Monteverde · Playa Hermosa",
-      category: "Group Tour",
-      duration: "8 Days · 7 Nights",
+      title: "Arenal Volcano · La Fortuna",
+      subtitle: "La Fortuna · Alajuela",
+      category: "Volcano",
+      duration: "Full Day",
       groupSize: "Small groups",
-      price: 2200,
-      description: "Our signature 8-day group tour covering Costa Rica's most iconic regions: Arenal Volcano in La Fortuna, the misty cloud forest of Monteverde and the golden beaches of Playa Hermosa in Guanacaste.",
-      highlights: ["Arenal Volcano & hot springs", "Monteverde cloud forest & hanging bridges", "Playa Hermosa beach days", "Private transport throughout"],
+      price: 95,
+      description: "Hike the legendary Arenal Volcano trails, soak in natural hot springs and enjoy panoramic views of Costa Rica's most iconic volcano.",
+      highlights: ["1968 Lava Trail guided hike", "Natural hot springs", "Traditional Costa Rican meal (optional)", "Hotel pickup included"],
       image: volcanoImg.src,
     },
     {
       index: "02",
-      title: "Arenal Volcano Day Tour",
-      subtitle: "La Fortuna · Alajuela",
-      category: "Nature",
-      duration: "Full Day · 8-10 hrs",
-      groupSize: "Max 12 people",
-      price: 95,
-      description: "Hike the legendary Arenal Volcano trails, soak in natural hot springs and enjoy panoramic views of Costa Rica's most iconic volcano. Hotel pickup included.",
-      highlights: ["1968 Lava Trail guided hike", "Natural hot springs soak", "Traditional Costa Rican lunch", "Hotel pickup in La Fortuna"],
-      image: miravallesImg.src,
-    },
-    {
-      index: "03",
-      title: "Rio Celeste Adventure",
-      subtitle: "Tenorio National Park",
-      category: "Rainforest",
-      duration: "Full Day · 9 hrs",
-      groupSize: "Max 10 people",
-      price: 125,
-      description: "Discover the mystical turquoise river of Tenorio National Park. Hike through pristine rainforest to reach the iconic blue waterfall — one of the most photographed spots in Costa Rica.",
-      highlights: ["Guided rainforest hike", "The famous blue waterfall", "Blue lagoon viewpoint", "Wildlife spotting (sloths, toucans)"],
-      image: rioCelesteImg.src,
-    },
-    {
-      index: "04",
       title: "Monteverde Cloud Forest",
       subtitle: "Cloud Forest Reserve",
       category: "Nature",
-      duration: "Full Day · 8 hrs",
-      groupSize: "Max 12 people",
-      price: 85,
-      description: "Walk above the rainforest canopy on suspended bridges. Spot toucans, sloths and monkeys in their natural habitat with a certified naturalist guide who knows every trail by heart.",
-      highlights: ["6 hanging bridges experience", "Canopy-level wildlife viewing", "Professional naturalist guide", "Best photography stops"],
+      duration: "Full Day",
+      groupSize: "Small groups",
+      price: 95,
+      description: "Walk above the rainforest canopy on suspended bridges. Spot toucans, sloths and monkeys with a certified naturalist.",
+      highlights: ["Hanging bridges experience", "Wildlife viewing", "Naturalist guide", "Reserve entrance"],
       image: monteverdeImg.src,
     },
+    {
+      index: "03",
+      title: "Manuel Antonio National Park",
+      subtitle: "Central Pacific",
+      category: "Wildlife",
+      duration: "Full Day",
+      groupSize: "Small groups",
+      price: 115,
+      description: "White-sand beaches framed by jungle. Sloths, monkeys and toucans roam free in one of Costa Rica's most loved parks.",
+      highlights: ["Guided park walk", "Beach time", "Wildlife spotting", "Park entrance"],
+      image: manuelAntonioImg.src,
+    },
+    {
+      index: "04",
+      title: "Poás Volcano",
+      subtitle: "Central Valley",
+      category: "Volcano",
+      duration: "Full Day",
+      groupSize: "Small groups",
+      price: 85,
+      description: "One of the world's most accessible active craters. Walk to the main viewpoint and discover the lush cloud forest around it.",
+      highlights: ["Active crater viewpoint", "Cloud forest trails", "Coffee country stop", "Park entrance"],
+      image: miravallesImg.src,
+    },
+    {
+      index: "05",
+      title: "Tortuguero Canals",
+      subtitle: "Caribbean Coast",
+      category: "Wildlife",
+      duration: "Full Day",
+      groupSize: "Small groups",
+      price: 145,
+      description: "Boat through the jungle canals of Tortuguero — sometimes called 'Costa Rica's Amazon' — and meet the wildlife of the Caribbean.",
+      highlights: ["Boat ride through canals", "Wildlife spotting", "Local community visit", "Optional lunch"],
+      image: tortugueroImg.src,
+    },
+    {
+      index: "06",
+      title: "Río Celeste",
+      subtitle: "Tenorio National Park",
+      category: "Rainforest",
+      duration: "Full Day",
+      groupSize: "Small groups",
+      price: 125,
+      description: "Hike through the rainforest to reach the mystical turquoise waterfall — one of the most photographed spots in Costa Rica.",
+      highlights: ["Rainforest hike", "The famous blue waterfall", "Blue lagoon viewpoint", "Park entrance"],
+      image: rioCelesteImg.src,
+    },
+    {
+      index: "07",
+      title: "Irazú Volcano",
+      subtitle: "Cartago Province",
+      category: "Volcano",
+      duration: "Full Day",
+      groupSize: "Small groups",
+      price: 85,
+      description: "Stand on top of Costa Rica's highest active volcano. Panoramic craters, moon-like landscapes and views of two oceans on clear days.",
+      highlights: ["Summit crater views", "High-altitude landscapes", "Cartago valley stop", "Park entrance"],
+      image: irazuImg.src,
+    },
+    {
+      index: "08",
+      title: "Bajos del Toro Waterfalls",
+      subtitle: "Poza Celeste · Alajuela",
+      category: "Rainforest",
+      duration: "Full Day",
+      groupSize: "Small groups",
+      price: 110,
+      description: "Off-the-beaten-path hike to the stunning Bajos del Toro waterfall and its turquoise 'Poza Celeste' pool. A true hidden gem.",
+      highlights: ["Waterfall guided hike", "Poza Celeste pool", "Cloud forest scenery", "Quiet, low-crowd experience"],
+      image: bajosDelToroImg.src,
+    },
   ],
+  group: {
+    title: "Weekly Family & Group Tours",
+    description:
+      "Multi-day itineraries for families and groups of families — we adapt the program, the pace and the stops. Stay at the hotel of your choice; we coordinate transport, guides, meals and activities end-to-end.",
+    features: [
+      "Family-friendly itineraries",
+      "Hotel of your choice",
+      "Private transport throughout",
+      "Certified local guides",
+      "Meals included (per plan)",
+      "Flexible dates, weekly departures",
+    ],
+  },
 };
 
 // ── Top Destinations across Costa Rica ──
@@ -120,7 +198,7 @@ export const beaches = {
     {
       name: "La Fortuna & Arenal",
       description: "Home of the iconic Arenal Volcano, hot springs and lush rainforest trails.",
-      image: "https://images.unsplash.com/photo-1580739194420-ab2e3c60e5e2?auto=format&fit=crop&w=1200&q=80",
+      image: volcanoImg.src,
       tag: "Most Popular",
     },
     {
@@ -132,7 +210,7 @@ export const beaches = {
     {
       name: "Manuel Antonio",
       description: "White-sand beaches and a national park where sloths and monkeys roam free.",
-      image: "https://images.unsplash.com/photo-1577717903315-1691ae25ab3f?auto=format&fit=crop&w=800&q=80",
+      image: manuelAntonioImg.src,
       tag: "Wildlife",
     },
     {
@@ -142,26 +220,26 @@ export const beaches = {
       tag: "Beach Paradise",
     },
     {
-      name: "Puerto Viejo",
-      description: "Caribbean vibes, reggae rhythm and pristine jungle beaches on the east coast.",
-      image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80",
+      name: "Tortuguero",
+      description: "Jungle canals and turtle beaches on the wild Caribbean coast.",
+      image: tortugueroImg.src,
       tag: "Caribbean",
     },
   ],
 };
 
-// ── Our Services: Rent-a-Car, Transfers, Group Tours ──
+// ── Our Services: Rent-a-Car, Transfers, Day Tours, Group Tours ──
 export const experiences = {
   headline: "Our Services",
   subtitle: "Everything you need for the perfect Costa Rica adventure — under one trusted name.",
   items: [
     {
       title: "Rent a Car",
-      duration: "All-terrain · Full insurance",
+      duration: "4x4 SUVs & Vans · Full insurance",
       price: 57,
       unit: "day",
-      description: "Eco-friendly, economical vehicles ready for every road in Costa Rica. Daily shuttle and airport delivery available.",
-      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+      description: "Nissan X-Trail 5 & 7 pax, Toyota Rush 7 pax and 8-12 pax vans. Kid seats available. Free additional driver, 24/7 roadside assistance.",
+      image: rentalCarImg.src,
       icon: "car",
     },
     {
@@ -169,17 +247,17 @@ export const experiences = {
       duration: "Door-to-door · Nationwide",
       price: 97,
       unit: "trip",
-      description: "Safe, comfortable transport across Costa Rica. Airport pickup and drop-off to Fortuna, Manuel Antonio, Guanacaste and more.",
-      image: "https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?auto=format&fit=crop&w=1200&q=80",
+      description: "Safe, comfortable transport across Costa Rica. Airport pickup and drop-off from SJO or LIR to Fortuna, Manuel Antonio, Guanacaste and more.",
+      image: privateTransfersImg.src,
       icon: "transfer",
     },
     {
-      title: "8-Day Group Tours",
-      duration: "Fortuna · Monteverde · Playa Hermosa",
-      price: 2200,
+      title: "Day & Group Tours",
+      duration: "8 one-day tours · Weekly group departures",
+      price: 85,
       unit: "person",
-      description: "Multi-day adventures with expert local guides: volcanoes, cloud forests and beaches — 100% authentic Pura Vida.",
-      image: catamaranImg.src,
+      description: "From Arenal and Monteverde to Tortuguero and Bajos del Toro — plus multi-day family packages with hotel of your choice.",
+      image: groupTourImg.src,
       icon: "group",
     },
   ],
@@ -188,7 +266,7 @@ export const experiences = {
 // ── Airport Transfers Price List ──
 export const transfers = {
   headline: "Your Journey Starts at the Airport",
-  subtitle: "Private door-to-door transfers from San José (SJO) to every corner of Costa Rica.",
+  subtitle: "Private door-to-door transfers from San José (SJO) and Liberia (LIR) to every corner of Costa Rica.",
   note: "Make more connections and receive discounts — the more you travel, the more you save!",
   routes: [
     { from: "SJO", to: "La Fortuna", price: 127 },
@@ -200,17 +278,106 @@ export const transfers = {
   ],
 };
 
+// ── Rent a Car ──
+export const rentACar = {
+  headline: "Rent a Car · 4x4 SUVs & Vans",
+  subtitle: "All-terrain vehicles ready for every Costa Rica road. Full insurance, 24/7 roadside assistance and no hidden fees.",
+  seasons: {
+    low: { label: "Low season", months: "May – November" },
+    high: { label: "High season", months: "December – April" },
+  },
+  vehicles: [
+    {
+      name: "Nissan X-Trail",
+      type: "SUV 4x4 · 5 passengers",
+      image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80",
+      low: 57,
+      high: 87,
+      deposit: 200,
+      features: ["5 passengers", "Automatic", "A/C", "Full insurance"],
+    },
+    {
+      name: "Nissan X-Trail / Toyota Rush",
+      type: "SUV 4x4 · 7 passengers",
+      image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80",
+      low: 70,
+      high: 97,
+      deposit: 200,
+      features: ["7 passengers", "Automatic", "Luggage space", "Full insurance"],
+    },
+    {
+      name: "Toyota Hiace / Staria Van",
+      type: "Van · 8 to 12 passengers",
+      image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80",
+      low: 0,
+      high: 0,
+      deposit: 400,
+      features: ["8 – 12 passengers", "Ideal for groups", "Airport delivery", "Full insurance"],
+      priceOnRequest: true,
+    },
+  ],
+  extras: [
+    { label: "Child car seat", price: 7, unit: "day" },
+    { label: "Additional driver", price: 0, unit: "free" },
+  ],
+  payment: {
+    headline: "Easy & transparent booking",
+    items: [
+      "50% of the contract paid at reservation via secure payment link",
+      "Security deposit: $200 for SUVs, $400 for vans",
+      "Remaining balance paid at vehicle delivery",
+      "Free cancellation policy — ask for details",
+    ],
+  },
+  includes: [
+    "Full-risk insurance (third parties & occupants)",
+    "24/7 roadside assistance",
+    "Free additional driver",
+    "No hidden taxes or fees",
+    "Airport delivery (SJO or LIR)",
+    "Kid seats available from $7 / day",
+  ],
+};
+
+// ── International: Nicaragua & Guatemala ──
+export const international = {
+  headline: "Beyond Costa Rica",
+  eyebrow: "Latin America",
+  subtitle:
+    "We also operate across Latin America — insured vehicles, hotels, private transfers and meals (flights not included). Pick up a 4x4 in Nicaragua or Guatemala and continue your adventure.",
+  locations: [
+    {
+      country: "Nicaragua",
+      flag: "🇳🇮",
+      pickups: ["Peñas Blancas (border with Costa Rica)", "Managua International Airport"],
+      image: nicaraguaImg.src,
+    },
+    {
+      country: "Guatemala",
+      flag: "🇬🇹",
+      pickups: ["Guatemala City · La Aurora Airport", "Petén · Mundo Maya Airport"],
+      image: guatemalaImg.src,
+    },
+  ],
+  offerings: [
+    "Multi-country tour packages",
+    "Insured 4x4 vehicle rental",
+    "Hotels + private transfers",
+    "Meals per itinerary (flights not included)",
+  ],
+};
+
 // ── About ──
 export const about = {
   headline: "Discover the Paradise of Costa Rica, Worry-Free",
   paragraphs: [
-    "Viktours is a Costa Rican travel agency built on one promise: to show travelers the real Pura Vida — the hidden waterfalls, quiet beaches and authentic moments you won't find in a brochure.",
-    "We take care of everything: customized itineraries, safe and comfortable transportation, rent a car with full insurance and expert local guides who turn every trip into an unforgettable story.",
+    "Viktours is a Costa Rican travel agency based in Guanacaste, at Liberia International Airport (LIR). For more than 10 years we have shown travelers the real Pura Vida — the hidden waterfalls, quiet beaches and authentic moments you won't find in a brochure.",
+    "We take care of everything: customized itineraries, rent a car with full insurance, safe private transfers and expert local guides. Over 4,000 travelers across Costa Rica, Nicaragua and Guatemala have trusted us to turn their trip into a story worth telling.",
   ],
   stats: [
-    { value: "100%", label: "Pura Vida" },
-    { value: "5,000+", label: "Happy Travelers" },
-    { value: "Eco", label: "Friendly" },
+    { value: "4,000+", label: "Happy Travelers" },
+    { value: "10+", label: "Years Guiding" },
+    { value: "3", label: "Countries" },
     { value: "24/7", label: "Support" },
   ],
   image: aboutImg.src,
@@ -221,22 +388,25 @@ export const testimonials = [
   {
     name: "Jennifer M.",
     location: "Austin, TX",
-    tour: "8-Day Pura Vida Package",
-    review: "The most incredible trip of our lives! Viktours took care of everything — transfers, guides, hotels. We saw Arenal, Monteverde and ended on the beach. Absolutely unforgettable.",
+    tour: "Arenal + Río Celeste Day Tours",
+    review:
+      "The most incredible trip of our lives! Viktours took care of everything — transfers, guides, entrances. We saw Arenal, Río Celeste and ended on the beach. Absolutely unforgettable.",
     rating: 5,
   },
   {
     name: "David & Sarah K.",
     location: "New York, NY",
-    tour: "Rent a Car + Transfers",
-    review: "We rented a 4x4 through Viktours and it was flawless. Great price, full insurance, and the team was responsive the whole trip. Best travel agency in Costa Rica.",
+    tour: "Rent a Car + Private Transfers",
+    review:
+      "We rented a 4x4 through Viktours and it was flawless. Great price, full insurance, and the team was responsive the whole trip. Best travel agency in Costa Rica.",
     rating: 5,
   },
   {
     name: "Michael R.",
     location: "Chicago, IL",
-    tour: "SJO → Manuel Antonio Transfer",
-    review: "On-time pickup, super comfortable van and a friendly driver who gave us travel tips. Exactly what you want after a long flight. Highly recommend Viktours.",
+    tour: "LIR → Manuel Antonio Transfer",
+    review:
+      "On-time pickup at Liberia, super comfortable van and a friendly driver who gave us travel tips. Exactly what you want after a long flight. Highly recommend Viktours.",
     rating: 5,
   },
 ];
@@ -245,36 +415,37 @@ export const testimonials = [
 export const whyUs = {
   headline: "Why Travel with Viktours",
   items: [
-    { title: "Local Experts", description: "Meet local travelers, reach places and towns with 100% authentic Costa Ricans.", icon: "guide" },
-    { title: "Eco-Friendly", description: "All-terrain vehicles, ecological with the environment, economical with full insurance.", icon: "leaf" },
+    { title: "Local Experts", description: "10+ years showing travelers the real Costa Rica — Pura Vida, not tourist traps.", icon: "guide" },
+    { title: "Eco-Friendly", description: "All-terrain vehicles, eco-conscious driving and certified operators. Good for you, good for Costa Rica.", icon: "leaf" },
     { title: "Customized Itineraries", description: "Every traveler is unique — we tailor every detail to your pace, style and budget.", icon: "check" },
-    { title: "Safe & Comfortable", description: "Expert guides and trusted drivers who will make your experience unforgettable.", icon: "shield" },
+    { title: "Safe & Insured", description: "Full-risk insurance, 24/7 roadside assistance and no hidden fees on every service.", icon: "shield" },
   ],
 };
 
 // ── CTA ──
 export const ctaSection = {
   headline: "Let Us Take Care of Everything",
-  description: "Would you like to explore the most stunning corners of Costa Rica? Book your rent a car, transfer or tour today — free quote, flexible dates.",
+  description:
+    "One-day tours, rent a car, private transfers and family packages — pick a date, we handle the rest. Free quote, flexible cancellation.",
   cta: "Plan My Trip",
   secondary: "Or WhatsApp us at +506 8953-7777",
 };
 
 // ── Footer ──
 export const footer = {
-  tours: ["8-Day Pura Vida", "Arenal Volcano", "Rio Celeste", "Monteverde"],
-  beaches: ["La Fortuna", "Monteverde", "Manuel Antonio", "Playa Hermosa", "Puerto Viejo"],
-  experiences: ["Rent a Car", "Airport Transfers", "Group Tours", "Customized Itineraries"],
+  tours: ["Arenal Volcano", "Monteverde", "Manuel Antonio", "Río Celeste", "Tortuguero", "Poás / Irazú", "Bajos del Toro"],
+  beaches: ["Guanacaste", "Fortuna", "Manuel Antonio", "Monteverde", "Tortuguero", "Nicaragua", "Guatemala"],
+  experiences: ["Rent a Car", "Airport Transfers", "Day Tours", "Family Group Tours", "Latin America"],
   contact: {
-    address: "San José · Costa Rica\nOperating nationwide",
+    address: "Guanacaste · Liberia International Airport (LIR)\nCosta Rica",
     phone: "+506 8953-7777",
-    email: "info@viktourscr.com",
+    email: "info@viktours.tours",
   },
   hours: "Open Daily: 7:00 AM – 9:00 PM",
   socials: [
     { label: "Instagram", href: "https://instagram.com/viktourscr" },
     { label: "Facebook", href: "https://facebook.com/viktourscr" },
     { label: "WhatsApp", href: "https://wa.me/50689537777" },
-    { label: "Email", href: "mailto:info@viktourscr.com" },
+    { label: "Email", href: "mailto:info@viktours.tours" },
   ],
 };
