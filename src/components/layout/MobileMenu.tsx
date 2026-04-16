@@ -15,7 +15,7 @@ export default function MobileMenu() {
         </div>
       </button>
       {open && (
-        <div className="lg:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, width: "100vw", height: "100vh", backgroundColor: "#fafdf6", zIndex: 60, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1.5rem" }}>
+        <div className="lg:hidden" style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, width: "100vw", height: "100vh", backgroundColor: "#fafdf6", zIndex: 60, display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center", gap: "1.5rem", paddingLeft: "2rem", paddingRight: "2rem" }}>
           <a href="/" onClick={() => setOpen(false)} style={{ position: "absolute", top: "1rem", left: "1rem" }}>
             <img src="/logo.png" alt="Viktours" style={{ height: "48px" }} />
           </a>
