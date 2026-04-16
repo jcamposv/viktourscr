@@ -1,0 +1,30 @@
+---
+import { ctaSection } from "../../data/site";
+import volcanoImg from "../../assets/images/volcano.jpg";
+---
+
+<section class="relative py-24 lg:py-32 overflow-hidden" id="contact">
+  <div class="absolute inset-0 -z-10">
+    <img src={volcanoImg.src} alt="Arenal Volcano Costa Rica" class="w-full h-full object-cover object-center" style="object-position: 50% 75%;" loading="lazy" />
+    <div class="absolute inset-0 bg-gradient-to-b from-jungle/75 via-jungle/70 to-jungle/85"></div>
+  </div>
+
+  <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-animate>
+    <span class="inline-flex items-center gap-2 bg-sun/20 text-sun text-sm font-semibold px-4 py-1.5 rounded-full mb-6">
+      <span>🌿</span> Pura Vida Awaits
+    </span>
+    <h2 class="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+      {ctaSection.headline}
+    </h2>
+    <p class="mt-6 text-white/70 text-lg font-body leading-relaxed max-w-xl mx-auto">
+      {ctaSection.description}
+    </p>
+    <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+      <button data-booking class="inline-flex items-center justify-center gap-2 bg-sun hover:bg-sun-dark text-charcoal font-bold rounded-full px-10 py-5 text-base transition-all shadow-lg shadow-black/20 cursor-pointer">
+        {ctaSection.cta}
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </button>
+    </div>
+    <p class="mt-6 text-white/50 text-sm">{ctaSection.secondary}</p>
+  </div>
+</section>

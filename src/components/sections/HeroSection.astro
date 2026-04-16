@@ -1,0 +1,147 @@
+---
+import { hero, experiences } from "../../data/site";
+---
+
+<section class="relative overflow-hidden bg-cream pt-32 lg:pt-40 pb-32 lg:pb-48">
+  <!-- Decorative blobs -->
+  <div class="absolute -top-24 -right-24 w-[28rem] h-[28rem] rounded-full bg-leaf/10 blur-3xl pointer-events-none"></div>
+  <div class="absolute top-1/3 -left-32 w-[24rem] h-[24rem] rounded-full bg-sea/10 blur-3xl pointer-events-none"></div>
+
+  <!-- Faint dot grid -->
+  <div class="absolute inset-0 opacity-[0.035] pointer-events-none" aria-hidden="true"
+       style="background-image: radial-gradient(#0f3d2e 1px, transparent 1px); background-size: 22px 22px;"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <!-- Left: Content -->
+      <div class="lg:col-span-7 relative z-10">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 bg-white/70 backdrop-blur border border-jungle/10 text-jungle text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6 shadow-sm">
+          <span class="w-1.5 h-1.5 bg-leaf rounded-full animate-pulse"></span>
+          {hero.badge}
+        </div>
+
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-[4.5rem] font-extrabold text-charcoal tracking-tight leading-[1.02]">
+          {hero.headline.line1}
+          <span class="relative inline-block">
+            <span class="relative z-10 text-leaf-dark">{hero.headline.accent}</span>
+            <!-- brush underline -->
+            <svg class="absolute left-0 -bottom-2 w-full h-3 text-leaf" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M2 10 C 80 2, 220 2, 298 8" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="none"/>
+            </svg>
+          </span>
+          <br />
+          {hero.headline.line2}
+        </h1>
+
+        <p class="mt-7 text-charcoal/65 text-lg lg:text-xl font-body leading-relaxed max-w-xl">
+          {hero.description}
+        </p>
+
+        <!-- CTAs -->
+        <div class="mt-9 flex flex-col sm:flex-row gap-3.5">
+          <button data-booking class="group inline-flex items-center justify-center gap-2 bg-leaf hover:bg-leaf-dark text-jungle-dark font-bold rounded-full px-7 py-4 text-base transition-all shadow-xl shadow-leaf/30 cursor-pointer">
+            {hero.cta.primary}
+            <svg class="w-5 h-5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </button>
+          <a href="#experiences" class="inline-flex items-center justify-center gap-2 bg-white border-2 border-jungle/10 hover:border-jungle text-jungle font-semibold rounded-full px-7 py-4 text-base transition-all">
+            {hero.cta.secondary}
+          </a>
+        </div>
+
+        <!-- Trust row -->
+        <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-charcoal/50">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-leaf" fill="currentColor" viewBox="0 0 20 20"><path d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+            <span class="font-semibold">Eco-friendly</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-leaf" fill="currentColor" viewBox="0 0 20 20"><path d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+            <span class="font-semibold">Full insurance</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-leaf" fill="currentColor" viewBox="0 0 20 20"><path d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+            <span class="font-semibold">24/7 local support</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-leaf" fill="currentColor" viewBox="0 0 20 20"><path d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+            <span class="font-semibold">100% authentic</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Photo card with floating elements -->
+      <div class="lg:col-span-5 relative">
+        <!-- Tilted sun badge -->
+        <div class="hidden lg:block absolute -top-6 -left-6 z-20 bg-sun text-jungle-dark font-extrabold text-xs uppercase tracking-[0.18em] px-4 py-2 rounded-full shadow-xl rotate-[-6deg]">
+          Pura Vida · Eco
+        </div>
+
+        <!-- Main photo -->
+        <div class="relative rounded-[2rem] overflow-hidden aspect-[4/5] shadow-2xl shadow-jungle/25 ring-1 ring-white">
+          <img src={hero.image} alt="Costa Rica" class="w-full h-full object-cover" loading="eager" />
+          <div class="absolute inset-0 bg-gradient-to-t from-jungle/50 via-transparent to-transparent"></div>
+
+          <!-- Floating review card -->
+          <div class="absolute top-5 right-5 bg-white/95 backdrop-blur rounded-2xl shadow-lg px-3.5 py-2.5 flex items-center gap-2.5">
+            <div class="flex">
+              {[1,2,3,4,5].map(() => (
+                <svg class="w-3.5 h-3.5 text-sun" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              ))}
+            </div>
+            <div class="text-[11px] leading-tight">
+              <div class="font-bold text-charcoal">4.9 / 5</div>
+              <div class="text-charcoal/50">5,000+ travelers</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating stat card bottom-left -->
+        <div class="hidden sm:block absolute -bottom-6 -left-6 lg:-left-10 bg-white rounded-2xl shadow-xl p-4 pr-5 flex items-center gap-3 ring-1 ring-jungle/5">
+          <div class="w-11 h-11 rounded-xl bg-leaf/15 flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6 text-leaf-dark" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <div class="text-[10px] uppercase tracking-widest text-charcoal/40 font-semibold">Covering</div>
+            <div class="font-bold text-charcoal text-sm leading-tight">All of Costa Rica</div>
+          </div>
+        </div>
+
+        <!-- Floating toucan-friendly leaf accent -->
+        <div class="hidden md:block absolute -top-8 -right-4 text-leaf/50" aria-hidden="true">
+          <svg class="w-24 h-24 rotate-[15deg]" viewBox="0 0 64 64" fill="currentColor">
+            <path d="M32 4C18 10 10 22 10 36c0 12 10 22 22 22 0 0 0-10 4-16s14-10 18-20c-10 0-18 4-26 12 2-12 8-22 4-30z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service strip overlapping bottom -->
+    <div class="relative mt-16 lg:mt-24" data-animate>
+      <div class="bg-white rounded-3xl shadow-xl shadow-jungle/10 ring-1 ring-jungle/5 p-2 grid grid-cols-1 md:grid-cols-3 gap-2">
+        {experiences.items.map((item, i) => (
+          <a href="#experiences" class="group flex items-center gap-4 rounded-2xl p-4 lg:p-5 hover:bg-cream transition-colors">
+            <div class={`w-12 h-12 shrink-0 rounded-xl flex items-center justify-center ${i === 0 ? "bg-leaf/15 text-leaf-dark" : i === 1 ? "bg-sea/15 text-sea-dark" : "bg-sun/20 text-jungle"}`}>
+              {i === 0 && <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13l1.5-4.5A2 2 0 016.4 7h11.2a2 2 0 011.9 1.5L21 13m-18 0v5a1 1 0 001 1h2a1 1 0 001-1v-2h12v2a1 1 0 001 1h2a1 1 0 001-1v-5m-18 0h18M7 17h.01M17 17h.01"/></svg>}
+              {i === 1 && <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4M16 17H4m0 0l4 4m-4-4l4-4"/></svg>}
+              {i === 2 && <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m6-5a4 4 0 11-8 0 4 4 0 018 0zm6 3a3 3 0 11-6 0 3 3 0 016 0z"/></svg>}
+            </div>
+            <div class="min-w-0 flex-1">
+              <div class="text-[10px] uppercase tracking-widest text-charcoal/40 font-semibold mb-0.5">From ${item.price}/{item.unit ?? "pp"}</div>
+              <div class="font-bold text-charcoal text-base leading-tight truncate">{item.title}</div>
+              <div class="text-xs text-charcoal/50 truncate">{item.duration}</div>
+            </div>
+            <svg class="w-4 h-4 text-charcoal/30 group-hover:text-jungle group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Wave divider -->
+  <div class="absolute bottom-0 left-0 right-0 pointer-events-none" aria-hidden="true">
+    <svg class="w-full h-12 lg:h-16 text-white" viewBox="0 0 1440 80" preserveAspectRatio="none" fill="currentColor">
+      <path d="M0 80 L0 40 C 240 0, 480 80, 720 40 C 960 0, 1200 80, 1440 40 L1440 80 Z"/>
+    </svg>
+  </div>
+</section>

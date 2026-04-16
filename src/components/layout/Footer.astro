@@ -1,0 +1,51 @@
+---
+import { siteConfig, footer } from "../../data/site";
+---
+
+<footer class="bg-charcoal text-white/70">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+      <!-- Brand - spans 2 cols on desktop -->
+      <div class="col-span-2">
+        <img src="/logo.png" alt={siteConfig.name} class="h-14 mb-4" />
+        <p class="text-white/50 text-sm leading-relaxed max-w-xs font-body">
+          Your trusted Costa Rica travel agency. Rent a car, transfers and tours — 100% Pura Vida, eco-friendly and locally owned.
+        </p>
+        <div class="flex gap-4 mt-6">
+          {footer.socials.map((s) => (
+            <a href={s.href} class="text-white/40 hover:text-sun transition-colors text-sm">{s.label}</a>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-xs uppercase tracking-wider text-sun mb-4">Tours</h3>
+        <ul class="space-y-2.5 text-sm">
+          {footer.tours.map((t) => (<li><a href="#tours" class="hover:text-white transition-colors">{t}</a></li>))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-xs uppercase tracking-wider text-sun mb-4">Destinations</h3>
+        <ul class="space-y-2.5 text-sm">
+          {footer.beaches.map((b) => (<li><a href="#beaches" class="hover:text-white transition-colors">{b}</a></li>))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-xs uppercase tracking-wider text-sun mb-4">Contact</h3>
+        <address class="not-italic space-y-2.5 text-sm">
+          <p class="whitespace-pre-line">{footer.contact.address}</p>
+          <p><a href={`tel:${footer.contact.phone.replace(/\D/g, "")}`} class="hover:text-white transition-colors">{footer.contact.phone}</a></p>
+          <p><a href={`mailto:${footer.contact.email}`} class="hover:text-white transition-colors">{footer.contact.email}</a></p>
+          <p class="text-white/40 text-xs">{footer.hours}</p>
+        </address>
+      </div>
+    </div>
+
+    <div class="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-white/30 text-sm">&copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
+      <p class="text-white/30 text-xs italic">Pura Vida Costa Rica</p>
+    </div>
+  </div>
+</footer>

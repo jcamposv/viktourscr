@@ -1,0 +1,64 @@
+---
+import { beaches } from "../../data/site";
+---
+
+<section class="py-20 lg:py-28 bg-white" id="beaches">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center mb-14 lg:mb-20" data-animate>
+      <span class="inline-flex items-center gap-2 bg-sea/15 text-sea-dark text-sm font-semibold px-4 py-1.5 rounded-full mb-5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        Pacific Coast Paradise
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-charcoal">
+        {beaches.headline}
+      </h2>
+      <p class="mt-4 text-charcoal/60 text-lg font-body max-w-2xl mx-auto">{beaches.subtitle}</p>
+    </div>
+
+    <!-- Featured (first beach large) + grid of 4 -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
+      <!-- Featured beach - spans 2 cols -->
+      <div class="lg:col-span-2 tour-card relative rounded-3xl overflow-hidden aspect-[4/3] lg:aspect-auto" data-animate>
+        <img src={beaches.items[0].image} alt={beaches.items[0].name} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent"></div>
+        <div class="absolute top-5 left-5 bg-sun text-charcoal text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+          {beaches.items[0].tag}
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 lg:p-8 text-white">
+          <h3 class="text-2xl lg:text-4xl font-bold mb-2">{beaches.items[0].name}</h3>
+          <p class="text-white/80 font-body max-w-lg">{beaches.items[0].description}</p>
+        </div>
+      </div>
+
+      <!-- Second featured -->
+      <div class="tour-card relative rounded-3xl overflow-hidden aspect-[4/3] lg:aspect-auto" data-animate>
+        <img src={beaches.items[1].image} alt={beaches.items[1].name} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent"></div>
+        <div class="absolute top-5 left-5 bg-white text-charcoal text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">
+          {beaches.items[1].tag}
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+          <h3 class="text-xl lg:text-2xl font-bold mb-1">{beaches.items[1].name}</h3>
+          <p class="text-white/80 text-sm font-body">{beaches.items[1].description}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Remaining 3 beaches -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6 mt-4 lg:mt-6">
+      {beaches.items.slice(2).map((beach) => (
+        <div class="tour-card relative rounded-3xl overflow-hidden aspect-[4/3]" data-animate>
+          <img src={beach.image} alt={beach.name} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent"></div>
+          <div class="absolute top-4 left-4 bg-white text-charcoal text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+            {beach.tag}
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-5 text-white">
+            <h3 class="text-xl font-bold mb-1">{beach.name}</h3>
+            <p class="text-white/80 text-sm font-body line-clamp-2">{beach.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+---
+import { siteConfig, booking, footer } from "../data/site";
+import BookingModal from "../components/booking/BookingModal";
+import "../styles/global.css";
+
+interface Props { title?: string; description?: string; }
+const { title = siteConfig.title, description = siteConfig.description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteConfig.url} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <link rel="canonical" href={siteConfig.url} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen">
+    <slot />
+    <BookingModal client:load whatsappNumber={booking.whatsapp.number} googleCalendarEnabled={booking.googleCalendar.enabled} clinicName={siteConfig.name} clinicAddress={footer.contact.address.replace("\n", ", ")} />
+
+    <script>
+      document.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+        const bookingBtn = target.closest("[data-booking]");
+        if (bookingBtn) { e.preventDefault(); window.dispatchEvent(new CustomEvent("open-booking")); return; }
+        const link = target.closest('a[href="#top"]') as HTMLAnchorElement | null;
+        if (link) { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }
+      });
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); });
+      }, { threshold: 0.1 });
+      document.querySelectorAll("[data-animate]").forEach((el) => obs.observe(el));
+    </script>
+  </body>
+</html>
