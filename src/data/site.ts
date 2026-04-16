@@ -1,4 +1,4 @@
-import heroImg from "../assets/images/hero.jpg";
+import heroImg from "../assets/images/hero.png";
 import volcanoImg from "../assets/images/volcano.jpg";
 import rioCelesteImg from "../assets/images/rio-celeste.jpg";
 import miravallesImg from "../assets/images/miravalles.jpg";
@@ -15,9 +15,12 @@ import guatemalaImg from "../assets/images/guatemala.jpg";
 import irazuImg from "../assets/images/irazu.jpg";
 import bajosDelToroImg from "../assets/images/bajos-del-toro.jpg";
 import manuelAntonioImg from "../assets/images/manuel-antonio.jpg";
-import rentalCarImg from "../assets/images/rental-car.jpg";
-import privateTransfersImg from "../assets/images/private-transfers.jpg";
-import groupTourImg from "../assets/images/group-tour.png";
+import rentalCarImg from "../assets/images/rental-car.png";
+import privateTransfersImg from "../assets/images/private-transfers.jpeg";
+import groupTourImg from "../assets/images/group-tour.jpeg";
+import xtrailImg from "../assets/images/xtrail-nissan.png";
+import toyotaRushImg from "../assets/images/toyota-rush.png";
+import stariaVanImg from "../assets/images/staria-van.png";
 
 export const siteConfig = {
   name: "Viktours Costa Rica",
@@ -290,7 +293,7 @@ export const rentACar = {
     {
       name: "Nissan X-Trail",
       type: "SUV 4x4 · 5 passengers",
-      image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80",
+      image: xtrailImg.src,
       low: 57,
       high: 87,
       deposit: 200,
@@ -299,7 +302,7 @@ export const rentACar = {
     {
       name: "Nissan X-Trail / Toyota Rush",
       type: "SUV 4x4 · 7 passengers",
-      image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=80",
+      image: toyotaRushImg.src,
       low: 70,
       high: 97,
       deposit: 200,
@@ -308,7 +311,7 @@ export const rentACar = {
     {
       name: "Toyota Hiace / Staria Van",
       type: "Van · 8 to 12 passengers",
-      image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=1200&q=80",
+      image: stariaVanImg.src,
       low: 0,
       high: 0,
       deposit: 400,

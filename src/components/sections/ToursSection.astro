@@ -1,5 +1,6 @@
 ---
 import { tours, booking } from "../../data/site";
+import groupTourImg from "../../assets/images/group-tour.jpeg";
 
 const waBase = `https://wa.me/${booking.whatsapp.number}?text=`;
 const waReserve = (item: string) =>
@@ -134,8 +135,8 @@ const waInfo = (item: string) =>
 
         <!-- Image -->
         <div class="relative min-h-[16rem] lg:min-h-[28rem]">
-          <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=1200&q=80" alt="Family tour" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-r from-jungle/80 via-jungle/20 to-transparent lg:bg-gradient-to-l"></div>
+          <img src={groupTourImg.src} alt="Family tour" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-r from-jungle/60 via-transparent to-transparent lg:from-transparent lg:to-transparent"></div>
         </div>
       </div>
     </div>

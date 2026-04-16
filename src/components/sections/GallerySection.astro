@@ -1,0 +1,59 @@
+---
+import { gallery } from "../../data/site";
+---
+
+<section class="py-20 lg:py-28 bg-white relative overflow-hidden" id="gallery">
+  <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-leaf/5 blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-32 -right-20 w-96 h-96 rounded-full bg-sea/5 blur-3xl pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-14" data-animate>
+      <span class="inline-flex items-center gap-2 bg-sun/20 text-jungle-dark text-sm font-semibold px-4 py-1.5 rounded-full mb-5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        {gallery.eyebrow}
+      </span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-charcoal">
+        {gallery.headline}
+      </h2>
+      <p class="mt-5 text-charcoal/55 text-lg font-body max-w-2xl mx-auto">
+        {gallery.subtitle}
+      </p>
+    </div>
+
+    <!-- Masonry-ish mosaic: 1 col → 2 → 3 → 4 -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4" data-animate>
+      {gallery.items.map((item, i) => {
+        // Create visual variety: every 5th item is taller
+        const tall = i === 0 || i === 4 || i === 7 || i === 10;
+        const wide = i === 2 || i === 9;
+        return (
+          <figure class={`group relative overflow-hidden rounded-2xl lg:rounded-3xl ${tall ? "row-span-2 aspect-[3/4]" : wide ? "md:col-span-2 aspect-[16/10]" : "aspect-[4/5]"}`}>
+            <img src={item.src} alt={item.alt} class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+            <figcaption class="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2 text-white">
+              <span class="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur text-white text-[10px] lg:text-[11px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+                <span class="w-1 h-1 rounded-full bg-leaf-light"></span>
+                {item.tag}
+              </span>
+            </figcaption>
+          </figure>
+        );
+      })}
+    </div>
+
+    <!-- Call to action -->
+    <div class="mt-12 lg:mt-16 text-center" data-animate>
+      <p class="text-charcoal/60 font-body text-base mb-5">Want to be in the next photo?</p>
+      <a
+        href="https://wa.me/50689537777?text=Hi%20Viktours!%20I%27d%20like%20to%20plan%20a%20trip%20with%20you.%20Could%20you%20send%20me%20more%20info%3F"
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-2 bg-leaf hover:bg-leaf-dark text-jungle-dark font-bold rounded-full px-7 py-3.5 text-sm transition-all shadow-lg shadow-leaf/30"
+      >
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+        Plan my adventure
+      </a>
+    </div>
+  </div>
+</section>

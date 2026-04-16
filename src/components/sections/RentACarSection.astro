@@ -40,8 +40,8 @@ const waInfo = (item: string) =>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-14 lg:mb-20">
       {rentACar.vehicles.map((v) => (
         <article class="bg-cream rounded-3xl overflow-hidden border border-jungle/5 hover:shadow-xl hover:shadow-jungle/10 transition-all" data-animate>
-          <div class="relative aspect-[4/3] overflow-hidden bg-jungle/5">
-            <img src={v.image} alt={v.name} class="w-full h-full object-cover" loading="lazy" />
+          <div class="relative h-64 overflow-hidden bg-jungle/5">
+            <img src={v.image} alt={v.name} class="w-full h-full object-cover object-center" loading="lazy" />
             <span class="absolute top-4 left-4 bg-white/95 backdrop-blur text-jungle text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow">
               {v.type}
             </span>
