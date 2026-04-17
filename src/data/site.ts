@@ -10,7 +10,7 @@ import sunsetImg from "../assets/images/sunset.jpg";
 import aboutImg from "../assets/images/about-waterfall.jpg";
 import catamaranImg from "../assets/images/catamaran.jpg";
 import tortugueroImg from "../assets/images/tortuguero.jpg";
-import nicaraguaImg from "../assets/images/nicaragua.jpg";
+import nicaraguaImg from "../assets/images/nicaragua.png";
 import guatemalaImg from "../assets/images/guatemala.png";
 import irazuImg from "../assets/images/irazu.jpg";
 import bajosDelToroImg from "../assets/images/bajos-del-toro.jpg";
