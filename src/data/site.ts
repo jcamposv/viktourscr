@@ -446,8 +446,9 @@ export const footer = {
   },
   hours: "Open Daily: 7:00 AM – 9:00 PM",
   socials: [
-    { label: "Instagram", href: "https://instagram.com/viktourscr" },
-    { label: "Facebook", href: "https://facebook.com/viktourscr" },
+    { label: "Instagram", href: "https://www.instagram.com/viktourscr?igsh=YXY4eXhycjRidDE3&utm_source=qr" },
+    { label: "Facebook", href: "https://www.facebook.com/share/1Crz34hdrt/?mibextid=wwXIfr" },
+    { label: "TikTok", href: "https://www.tiktok.com/@viktours?_r=1&_t=ZS-95cJ702CBzZ" },
     { label: "WhatsApp", href: "https://wa.me/50689537777" },
     { label: "Email", href: "mailto:info@viktours.co" },
   ],
