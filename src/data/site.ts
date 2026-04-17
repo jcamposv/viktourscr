@@ -11,7 +11,7 @@ import aboutImg from "../assets/images/about-waterfall.jpg";
 import catamaranImg from "../assets/images/catamaran.jpg";
 import tortugueroImg from "../assets/images/tortuguero.jpg";
 import nicaraguaImg from "../assets/images/nicaragua.jpg";
-import guatemalaImg from "../assets/images/guatemala.jpg";
+import guatemalaImg from "../assets/images/guatemala.png";
 import irazuImg from "../assets/images/irazu.jpg";
 import bajosDelToroImg from "../assets/images/bajos-del-toro.jpg";
 import manuelAntonioImg from "../assets/images/manuel-antonio.jpg";
