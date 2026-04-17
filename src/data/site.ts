@@ -442,13 +442,13 @@ export const footer = {
   contact: {
     address: "Guanacaste · Liberia International Airport (LIR)\nCosta Rica",
     phone: "+506 8953-7777",
-    email: "info@viktours.tours",
+    email: "info@viktours.co",
   },
   hours: "Open Daily: 7:00 AM – 9:00 PM",
   socials: [
     { label: "Instagram", href: "https://instagram.com/viktourscr" },
     { label: "Facebook", href: "https://facebook.com/viktourscr" },
     { label: "WhatsApp", href: "https://wa.me/50689537777" },
-    { label: "Email", href: "mailto:info@viktours.tours" },
+    { label: "Email", href: "mailto:info@viktours.co" },
   ],
 };
