@@ -42,12 +42,13 @@ export const booking = {
 };
 
 export const navigation = [
-  { label: "Home", href: "#top" },
-  { label: "Services", href: "#experiences" },
-  { label: "Day Tours", href: "#tours" },
-  { label: "Rent a Car", href: "#rent" },
-  { label: "Transfers", href: "#transfers" },
-  { label: "About", href: "#about" },
+  { label: "Home", href: "/#top" },
+  { label: "Services", href: "/#experiences" },
+  { label: "Day Tours", href: "/#tours" },
+  { label: "Rent a Car", href: "/#rent" },
+  { label: "Transfers", href: "/#transfers" },
+  { label: "About", href: "/#about" },
+  { label: "Gallery", href: "/gallery" },
 ];
 
 export const hero = {

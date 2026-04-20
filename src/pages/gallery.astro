@@ -1,0 +1,448 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+
+const galleries = [
+  {
+    id: "fortuna",
+    title: "Arenal Volcano",
+    category: "Volcanoes",
+    images: [
+      "/gallery/fortuna/main.jpg",
+      "/gallery/fortuna/IMG_1209-1.jpg",
+      "/gallery/fortuna/IMG_1248.jpg",
+      "/gallery/fortuna/IMG_1248-1.jpg",
+      "/gallery/fortuna/IMG_1571.jpg",
+      "/gallery/fortuna/IMG_1571-1.jpg",
+      "/gallery/fortuna/IMG_7171.jpg",
+      "/gallery/fortuna/IMG_7171-1.jpg",
+    ],
+    videos: [],
+  },
+  {
+    id: "monteverde",
+    title: "Monteverde",
+    category: "Rainforest",
+    images: [
+      "/gallery/monteverde/monteverde.jpg",
+      "/gallery/monteverde/IMG_1850.jpg",
+      "/gallery/monteverde/IMG_3715-1.jpg",
+    ],
+    videos: [],
+  },
+  {
+    id: "manuel-antonio",
+    title: "Manuel Antonio",
+    category: "Beaches",
+    images: [
+      "/gallery/manuel-antonio/main.jpeg",
+      "/gallery/manuel-antonio/IMG_1545.jpeg",
+    ],
+    videos: [
+      "/gallery/manuel-antonio/IMG_0720.mp4",
+      "/gallery/manuel-antonio/IMG_0721.mp4",
+    ],
+  },
+  {
+    id: "poas",
+    title: "Poas Volcano",
+    category: "Volcanoes",
+    images: [
+      "/gallery/poas/IMG_1322.jpg",
+      "/gallery/poas/IMG_1292.jpg",
+      "/gallery/poas/IMG_1308.jpg",
+      "/gallery/poas/IMG_3162.jpg",
+    ],
+    videos: [],
+  },
+  {
+    id: "tortuguero",
+    title: "Tortuguero",
+    category: "Wildlife",
+    images: [
+      "/gallery/tortuguero/IMG_7514.jpg",
+      "/gallery/tortuguero/IMG_7400.jpg",
+      "/gallery/tortuguero/IMG_7412.jpg",
+      "/gallery/tortuguero/IMG_7443.jpg",
+      "/gallery/tortuguero/IMG_7523.jpg",
+      "/gallery/tortuguero/IMG_7530.jpg",
+    ],
+    videos: [],
+  },
+  {
+    id: "rio-celeste",
+    title: "Rio Celeste",
+    category: "Rainforest",
+    images: [
+      "/gallery/rio-celeste/IMG_8839.jpg",
+      "/gallery/rio-celeste/IMG_0428.jpg",
+      "/gallery/rio-celeste/IMG_0672.jpg",
+      "/gallery/rio-celeste/IMG_1549.jpg",
+    ],
+    videos: [],
+  },
+  {
+    id: "volcan-irazu",
+    title: "Irazu Volcano",
+    category: "Volcanoes",
+    images: [
+      "/gallery/volcan-irazu/IMG_0170.jpg",
+      "/gallery/volcan-irazu/IMG_0158.jpg",
+      "/gallery/volcan-irazu/IMG_0169.jpg",
+      "/gallery/volcan-irazu/IMG_0172.jpg",
+    ],
+    videos: [],
+  },
+  {
+    id: "bajos-del-toro",
+    title: "Bajos del Toro",
+    category: "Rainforest",
+    images: [
+      "/gallery/bajos-del-toro/main.jpg",
+      "/gallery/bajos-del-toro/IMG_0021.jpg",
+      "/gallery/bajos-del-toro/IMG_0023.jpg",
+      "/gallery/bajos-del-toro/IMG_0026.jpg",
+      "/gallery/bajos-del-toro/IMG_1673.jpg",
+      "/gallery/bajos-del-toro/IMG_1880.jpg",
+      "/gallery/bajos-del-toro/IMG_2967.jpg",
+      "/gallery/bajos-del-toro/IMG_7623.jpg",
+      "/gallery/bajos-del-toro/IMG_7626.jpg",
+    ],
+    videos: [],
+  },
+  {
+    id: "playa-hermosa",
+    title: "Playa Hermosa",
+    category: "Beaches",
+    images: [
+      "/gallery/playa-hermosa/IMG_3108.jpg",
+      "/gallery/playa-hermosa/IMG_0736.jpg",
+      "/gallery/playa-hermosa/IMG_0837.jpg",
+    ],
+    videos: [],
+  },
+];
+
+const categories = ["All", "Volcanoes", "Rainforest", "Beaches", "Wildlife"];
+
+const categoryIcons: Record<string, string> = {
+  All: "M4 6h16M4 10h16M4 14h16M4 18h16",
+  Volcanoes: "M13 10V3L4 14h7v7l9-11h-7z",
+  Rainforest: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z",
+  Beaches: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707",
+  Wildlife: "M15 12a3 3 0 11-6 0 3 3 0 016 0z",
+};
+
+// Build flat list of all items for the grid
+const allItems: { src: string; category: string; tour: string; type: "image" | "video"; index: number }[] = [];
+let globalIndex = 0;
+for (const g of galleries) {
+  for (const src of g.images) {
+    allItems.push({ src, category: g.category, tour: g.title, type: "image", index: globalIndex++ });
+  }
+  for (const src of g.videos) {
+    allItems.push({ src, category: g.category, tour: g.title, type: "video", index: globalIndex++ });
+  }
+}
+---
+
+<BaseLayout title="Gallery | Viktours" description="Explore our photo and video gallery from tours across Costa Rica.">
+  <Header />
+  <main class="pt-36 sm:pt-44 pb-20 bg-white">
+
+    <!-- Header -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 text-center mb-10 sm:mb-14">
+      <h1 class="font-display text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold text-jungle leading-[1.1] mb-5">
+        Adventures in<br />Pictures
+      </h1>
+      <p class="text-charcoal/50 text-base sm:text-lg max-w-lg mx-auto leading-relaxed">
+        From volcanoes to waterfalls, explore the magic of Costa Rica through the eyes of our travelers.
+      </p>
+    </section>
+
+    <!-- Filter pills -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 sm:mb-12">
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5" id="filters">
+        {categories.map((cat, i) => (
+          <button
+            class={`filter-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer ${
+              i === 0
+                ? "bg-jungle text-white shadow-md shadow-jungle/20"
+                : "bg-jungle/[0.04] text-charcoal/60 hover:bg-jungle/[0.08] hover:text-charcoal"
+            }`}
+            data-filter={cat}
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d={categoryIcons[cat] || categoryIcons.All} />
+            </svg>
+            {cat}
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4" id="gallery-grid">
+        {allItems.map((item, i) => (
+          <div
+            class="gallery-item"
+            data-category={item.category}
+            data-tour={item.tour}
+          >
+            {item.type === "image" ? (
+              <button
+                class="gallery-thumb group relative w-full aspect-[4/3] rounded-2xl sm:rounded-[20px] overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 block"
+                data-index={item.index}
+                data-src={item.src}
+              >
+                <img
+                  src={item.src}
+                  alt={`${item.tour}`}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <span class="text-white text-sm font-semibold">{item.tour}</span>
+                </div>
+              </button>
+            ) : (
+              <button
+                class="gallery-video-thumb group relative w-full aspect-[4/3] rounded-2xl sm:rounded-[20px] overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf focus-visible:ring-offset-2 block"
+                data-index={item.index}
+                data-video-src={item.src}
+              >
+                <video src={item.src} class="w-full h-full object-cover" muted preload="metadata" />
+                <div class="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors duration-300" />
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="flex items-center justify-center w-14 h-14 rounded-full bg-white/90 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-5 h-5 text-jungle ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 p-4">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/40 backdrop-blur-sm text-white text-xs font-medium">
+                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                    Video · {item.tour}
+                  </span>
+                </div>
+              </button>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- Empty state -->
+      <div id="empty-state" class="hidden py-20 text-center">
+        <svg class="w-16 h-16 mx-auto text-charcoal/15 mb-4" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24">
+          <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <p class="text-charcoal/40 text-lg">No photos in this category yet.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-20 sm:mt-28 text-center">
+      <div class="h-px bg-jungle/[0.06] mb-16" />
+      <h2 class="font-display text-2xl sm:text-3xl font-bold text-jungle mb-3">
+        Your Adventure Awaits
+      </h2>
+      <p class="text-charcoal/45 text-base max-w-md mx-auto mb-8">
+        Every photo here is a real moment. The next one could be yours.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a
+          href="/#tours"
+          class="inline-flex items-center gap-2 bg-leaf hover:bg-leaf-dark text-jungle-dark font-bold rounded-full px-8 py-3.5 text-sm transition-all shadow-md shadow-leaf/30"
+        >
+          Explore Tours
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a
+          href="https://wa.me/50689537777"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 bg-jungle/[0.04] hover:bg-jungle/[0.08] text-jungle font-semibold rounded-full px-8 py-3.5 text-sm transition-all"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          Contact Us
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" style="display:none; position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.85); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);">
+
+    <!-- Close -->
+    <button id="lb-close" style="position:absolute; top:20px; right:20px; z-index:10; width:44px; height:44px; border-radius:50%; background:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+      <svg width="18" height="18" fill="none" stroke="#333" stroke-width="2.5" viewBox="0 0 24 24">
+        <path d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Prev -->
+    <button id="lb-prev" style="position:absolute; left:20px; top:50%; transform:translateY(-50%); z-index:10; width:48px; height:48px; border-radius:50%; background:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+      <svg width="20" height="20" fill="none" stroke="#333" stroke-width="2.5" viewBox="0 0 24 24">
+        <path d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <!-- Next -->
+    <button id="lb-next" style="position:absolute; right:20px; top:50%; transform:translateY(-50%); z-index:10; width:48px; height:48px; border-radius:50%; background:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+      <svg width="20" height="20" fill="none" stroke="#333" stroke-width="2.5" viewBox="0 0 24 24">
+        <path d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <!-- Counter -->
+    <div id="lb-counter" style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%); z-index:10; padding:6px 16px; border-radius:20px; background:rgba(0,0,0,0.5); color:rgba(255,255,255,0.7); font-size:13px; font-weight:500;"></div>
+
+    <!-- Image/Video -->
+    <div id="lb-modal" style="position:absolute; inset:80px; display:flex; align-items:center; justify-content:center;">
+      <img id="lb-img" src="" alt="" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:16px; box-shadow:0 20px 60px rgba(0,0,0,0.4);" />
+      <video id="lb-video" src="" style="max-width:100%; max-height:100%; object-fit:contain; border-radius:16px; display:none;" controls autoplay />
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // --- Filters ---
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+  const items = document.querySelectorAll<HTMLElement>(".gallery-item");
+  const emptyState = document.getElementById("empty-state")!;
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter!;
+
+      // Update active state
+      filterBtns.forEach((b) => {
+        b.classList.remove("bg-jungle", "text-white", "shadow-md", "shadow-jungle/20");
+        b.classList.add("bg-jungle/[0.04]", "text-charcoal/60");
+      });
+      btn.classList.remove("bg-jungle/[0.04]", "text-charcoal/60");
+      btn.classList.add("bg-jungle", "text-white", "shadow-md", "shadow-jungle/20");
+
+      let visibleCount = 0;
+      items.forEach((item) => {
+        const match = filter === "All" || item.dataset.category === filter;
+        item.style.display = match ? "" : "none";
+        if (match) visibleCount++;
+      });
+
+      emptyState.style.display = visibleCount === 0 ? "block" : "none";
+    });
+  });
+
+  // --- Lightbox ---
+  const lightbox = document.getElementById("lightbox")!;
+  const lbImg = document.getElementById("lb-img") as HTMLImageElement;
+  const lbVideo = document.getElementById("lb-video") as HTMLVideoElement;
+  const lbClose = document.getElementById("lb-close")!;
+  const lbPrev = document.getElementById("lb-prev")!;
+  const lbNext = document.getElementById("lb-next")!;
+  const lbCounter = document.getElementById("lb-counter")!;
+  const lbContainer = document.getElementById("lb-container")!;
+
+  let mediaSources: string[] = [];
+  let currentIndex = 0;
+
+  function collectVisibleMedia(): string[] {
+    const sources: string[] = [];
+    document.querySelectorAll<HTMLElement>(".gallery-item").forEach((item) => {
+      if (item.style.display === "none") return;
+      const img = item.querySelector<HTMLElement>("[data-src]");
+      const vid = item.querySelector<HTMLElement>("[data-video-src]");
+      if (img) sources.push(img.dataset.src!);
+      if (vid) sources.push(vid.dataset.videoSrc!);
+    });
+    return sources;
+  }
+
+  function showMedia(index: number) {
+    currentIndex = index;
+    const src = mediaSources[index];
+    const isVid = src.endsWith(".mp4");
+
+    if (isVid) {
+      lbImg.style.display = "none";
+      lbVideo.style.display = "block";
+      lbVideo.src = src;
+    } else {
+      lbVideo.style.display = "none";
+      lbVideo.pause();
+      lbImg.style.display = "block";
+      lbImg.style.opacity = "0";
+      lbImg.src = src;
+      lbImg.onload = () => { lbImg.style.opacity = "1"; };
+    }
+
+    lbCounter.textContent = `${index + 1} / ${mediaSources.length}`;
+    lbPrev.style.display = index === 0 ? "none" : "flex";
+    lbNext.style.display = index === mediaSources.length - 1 ? "none" : "flex";
+  }
+
+  function openLightbox(src: string) {
+    mediaSources = collectVisibleMedia();
+    const idx = mediaSources.indexOf(src);
+    if (idx === -1) return;
+
+    lightbox.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    (document.querySelector("header") as HTMLElement).style.display = "none";
+    showMedia(idx);
+  }
+
+  function closeLightbox() {
+    lightbox.style.display = "none";
+    (document.querySelector("header") as HTMLElement).style.display = "";
+    document.body.style.overflow = "";
+    lbVideo.pause();
+    lbVideo.src = "";
+  }
+
+  document.querySelectorAll<HTMLElement>(".gallery-thumb").forEach((btn) => {
+    btn.addEventListener("click", () => openLightbox(btn.dataset.src!));
+  });
+
+  document.querySelectorAll<HTMLElement>(".gallery-video-thumb").forEach((btn) => {
+    btn.addEventListener("click", () => openLightbox(btn.dataset.videoSrc!));
+  });
+
+  lbClose.addEventListener("click", closeLightbox);
+  lbPrev.addEventListener("click", () => { if (currentIndex > 0) showMedia(currentIndex - 1); });
+  lbNext.addEventListener("click", () => { if (currentIndex < mediaSources.length - 1) showMedia(currentIndex + 1); });
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "none" || lightbox.style.display === "") return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft" && currentIndex > 0) showMedia(currentIndex - 1);
+    if (e.key === "ArrowRight" && currentIndex < mediaSources.length - 1) showMedia(currentIndex + 1);
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    const target = e.target as Node;
+    const modal = document.getElementById("lb-modal")!;
+    if (modal.contains(target) || lbPrev.contains(target) || lbNext.contains(target) || lbClose.contains(target)) return;
+    closeLightbox();
+  });
+</script>
+
+<style>
+  #lb-img {
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+</style>
