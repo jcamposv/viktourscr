@@ -10,6 +10,7 @@ import sunsetImg from "../assets/images/sunset.jpg";
 import aboutImg from "../assets/images/about-waterfall.jpg";
 import catamaranImg from "../assets/images/catamaran.jpg";
 import tortugueroImg from "../assets/images/tortuguero.jpg";
+import tortugueroBeachImg from "../assets/images/tortuguero-beach.jpg";
 import nicaraguaImg from "../assets/images/nicaragua.png";
 import guatemalaImg from "../assets/images/guatemala.png";
 import irazuImg from "../assets/images/irazu.jpg";
@@ -225,7 +226,7 @@ export const beaches = {
     {
       name: "Tortuguero",
       description: "Jungle canals and turtle beaches on the wild Caribbean coast.",
-      image: tortugueroImg.src,
+      image: tortugueroBeachImg.src,
       tag: "Caribbean",
     },
   ],
